@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mindful_app/gen/assets.gen.dart';
 
 
-import '../Widgets/container1.dart';
-import '../Widgets/container2.dart';
+import '../../Profile/profile.dart';
+import '../Widgets/communities.dart';
+
+
 
 
 import '../Widgets/daily_check_in.dart';
-import 'my_appointments.dart';
+import '../Widgets/health_tip_section.dart';
+import '../Widgets/my_goals_section.dart';
+import '../Widgets/take_action_section.dart';
+import '../../Therapists/pages/my_appointments.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -17,31 +23,54 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      body: Container(
-        height: MediaQuery.of(context).size.height * 0.9.clamp(45.0, double.infinity),
-        child: Stack(
-          children: [
-            Positioned(
-              right: 0,
-              left: 0,
-              top: 0,
-              bottom: 0,
-              child: Container(
-                child: Column(
-                  children: [
-                    Container1(),
-                    Container2()
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 20,
-                right: 20,
-                top: 130,
-                child: DailyCheckIn())
-          ]
+      appBar: AppBar(
+        toolbarHeight: 100,
+        backgroundColor: Colors.black,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context){
+                  return Profile();
+                }));
+          },
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/p11.jpg'),
+            radius: 30,
+          ),
         ),
+        title: Row(
+                children: [
+                  Text('Hi, Ronke',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                    ),),
+                  Icon(FontAwesomeIcons.hand,color: Colors.orange,)
+                ],
+        ) ,
+        actions: [
+          Icon(FontAwesomeIcons.solidBell,
+            color: Colors.white,),
+          SizedBox(width: 8,),
+          Icon(Icons.calendar_month,
+            color: Colors.white,)
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16.sp),
+        shrinkWrap: true,
+        children: [
+         // Container1(),
+          //SizedBox(height: 30,),
+          DailyCheckIn(),
+          SizedBox(height: 16,),
+          TakeActionSection(),
+          HealthTipSection(),
+          MyGoalsSection(),
+          SizedBox(height: 16,),
+          Communities()
+        ],
       ),
       floatingActionButton: FloatingActionButton(
       elevation: 0,

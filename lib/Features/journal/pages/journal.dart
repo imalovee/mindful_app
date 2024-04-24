@@ -10,6 +10,7 @@ class Journal extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("My Journal"),
         centerTitle: true,
         elevation: 0,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mindful_app/Features/Goals/goals.dart';
+import 'package:mindful_app/Features/Signup/pages/setup_Page.dart';
 
 import '../../../gen/assets.gen.dart';
 import 'my_goals_items.dart';
@@ -22,8 +24,13 @@ class MyGoalsSection extends StatelessWidget {
                   fontSize: 16
               ),),
             TextButton(
-                onPressed: (){},
-                child: Text('View All',
+                onPressed: (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context){
+                        return SetupPage();
+                      }));
+                },
+                child: Text('Set Goals',
                   style: TextStyle(
                       color: Color(0xFF0E55D8),
                       fontWeight: FontWeight.bold,

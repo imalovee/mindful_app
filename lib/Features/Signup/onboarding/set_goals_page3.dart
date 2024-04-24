@@ -245,7 +245,7 @@ class _SetGoals3State extends State<SetGoals3> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Caffiene Addiction',
+                    Text('Usage of Stimulants',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),

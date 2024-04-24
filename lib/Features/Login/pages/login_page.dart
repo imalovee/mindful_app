@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
         break;
       case LoginStatus.Succesful:
       WidgetsBinding.instance.addPostFrameCallback((timeStamp){
-        Navigator.pushReplacement(context,
+        Navigator.push(context,
             MaterialPageRoute(builder: (context){
               return Homepage();
             }));

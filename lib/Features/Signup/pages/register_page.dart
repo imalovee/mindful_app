@@ -165,7 +165,7 @@ List<String>items = [
             ElevatedButton(
                 onPressed: () {
                   if(_isUserInputValid()){
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context, MaterialPageRoute(
                         builder: (context) {
                           return CreatePassword();

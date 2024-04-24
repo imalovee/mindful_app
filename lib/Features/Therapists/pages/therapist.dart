@@ -12,6 +12,7 @@ class Therapist extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Find Your Therapist'),
         centerTitle: true,
         actions: [
@@ -55,8 +56,8 @@ class Therapist extends StatelessWidget {
                   )
                  ),
               TherapistWidget(
-                title: "Dr. Percy",
-                subTitle: "Counsellor",
+                title: "Dr. Mary",
+                subTitle: "Psychiatrist",
                 image: CircleAvatar(
                   backgroundImage: AssetImage('assets/download 5.jpg'),
                 )
@@ -68,15 +69,15 @@ class Therapist extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TherapistWidget(
-                title: "Dr. Anderson",
-                subTitle: "Counsellor",
-                image: CircleAvatar(
-                  backgroundImage: AssetImage('download 3.jpg'),
-                )
+                  title: "Dr. Samantha",
+                  subTitle: "Psychiatrist",
+                  image: CircleAvatar(
+                    backgroundImage: AssetImage('assets/download 3.jpg'),
+                  )
               ),
               TherapistWidget(
-                title: "Dr. Albert Sam",
-                subTitle: "Counsellor",
+                title: "Dr. Matt Peters",
+                subTitle: "psycologist",
                 image: CircleAvatar(
                   backgroundImage: AssetImage('assets/download 1.jpg'),
                 )
@@ -88,7 +89,7 @@ class Therapist extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TherapistWidget(
-                title: "Dr. Alberta",
+                title: "Dr. Patricia",
                 subTitle: "Counsellor",
                 image: CircleAvatar(
                   backgroundImage: AssetImage('assets/download 2.jpg'),
@@ -96,7 +97,7 @@ class Therapist extends StatelessWidget {
               ),
               TherapistWidget(
                 title: "Dr. Samantha",
-                subTitle: "Counsellor",
+                subTitle: "Psychiatrist",
                 image: CircleAvatar(
                   backgroundImage: AssetImage('assets/download 3.jpg'),
                 )

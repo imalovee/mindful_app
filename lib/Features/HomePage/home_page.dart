@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
                 label: "Goals"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.health_and_safety_outlined),
-                label: "healthtips"),
+                label: "Healthtips"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.menu_book_outlined),
                 label: "Journal"),

@@ -31,6 +31,12 @@ class Assets {
   static const AssetGenImage frame196 = AssetGenImage('assets/frame 196.png');
   static const AssetGenImage frame197 = AssetGenImage('assets/frame 197.png');
   static const AssetGenImage health = AssetGenImage('assets/health.png');
+  static const AssetGenImage image1 = AssetGenImage('assets/image 1.png');
+  static const AssetGenImage image2 = AssetGenImage('assets/image 2.png');
+  static const AssetGenImage image3 = AssetGenImage('assets/image 3.png');
+  static const AssetGenImage image4 = AssetGenImage('assets/image 4.png');
+  static const AssetGenImage image6 = AssetGenImage('assets/image 6.png');
+  static const AssetGenImage image8 = AssetGenImage('assets/image 8.png');
   static const AssetGenImage mindfulPng = AssetGenImage('assets/mindful.png');
   static const AssetGenImage mindfulWebp = AssetGenImage('assets/mindful.webp');
   static const AssetGenImage nurse = AssetGenImage('assets/nurse.png');
@@ -43,6 +49,7 @@ class Assets {
   static const AssetGenImage pi4 = AssetGenImage('assets/pi4.jpg');
   static const AssetGenImage pi5 = AssetGenImage('assets/pi5.jpg');
   static const AssetGenImage pi9 = AssetGenImage('assets/pi9.jpg');
+  static const AssetGenImage plate = AssetGenImage('assets/plate.png');
   static const AssetGenImage rectangle1 =
       AssetGenImage('assets/rectangle 1.png');
   static const AssetGenImage rectangle2 =
@@ -51,6 +58,7 @@ class Assets {
       AssetGenImage('assets/rectangle 3.png');
   static const AssetGenImage rectangle4 =
       AssetGenImage('assets/rectangle 4.png');
+  static const AssetGenImage shop = AssetGenImage('assets/shop.png');
   static const AssetGenImage sliders = AssetGenImage('assets/sliders.png');
   static const AssetGenImage splashScreen =
       AssetGenImage('assets/splash screen.png');
@@ -83,6 +91,12 @@ class Assets {
         frame196,
         frame197,
         health,
+        image1,
+        image2,
+        image3,
+        image4,
+        image6,
+        image8,
         mindfulPng,
         mindfulWebp,
         nurse,
@@ -95,10 +109,12 @@ class Assets {
         pi4,
         pi5,
         pi9,
+        plate,
         rectangle1,
         rectangle2,
         rectangle3,
         rectangle4,
+        shop,
         sliders,
         splashScreen,
         stars,

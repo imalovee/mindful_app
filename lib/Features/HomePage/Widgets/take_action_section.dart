@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../Therapists/pages/my_appointments.dart';
 
 class TakeActionSection extends StatelessWidget {
   const TakeActionSection({
@@ -55,30 +56,39 @@ class TakeActionSection extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 16,),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 8),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8)
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Assets.nurse.image(),
-                    Text('Schedule a therapy session',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18
-                      ),),
-                    Text('Have a one on one session with a \ntherapists today',
-                      style: TextStyle(
-                        color: Color(0xFF667185),
-                        // fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context,
+                     MaterialPageRoute(
+                         builder: (context){
+                           return MyAppointments();
+                         }));
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 8),
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Assets.nurse.image(),
+                      Text('Schedule a therapy session',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18
+                        ),),
+                      Text('check out your appointments/\nshedule new ones',
+                        style: TextStyle(
+                          color: Color(0xFF667185),
+                          // fontWeight: FontWeight.bold,
 
-                      ),)
-                  ],
+                        ),)
+                    ],
+                  ),
                 ),
               )
             ],

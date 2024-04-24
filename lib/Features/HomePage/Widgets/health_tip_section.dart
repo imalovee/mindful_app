@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mindful_app/Features/Health/health_tips.dart';
 
 import '../../../gen/assets.gen.dart';
 
@@ -38,7 +39,12 @@ class HealthTipSection extends StatelessWidget {
             ],
           ),
           IconButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushReplacement(context,
+                   MaterialPageRoute(builder: (context){
+                     return HealthTips();
+                   }));
+              },
               icon: Icon(Icons.arrow_forward_ios)),
         ],
       ),
