@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mindful_app/Features/HomePage/pages/calendar_page.dart';
 import 'package:mindful_app/gen/assets.gen.dart';
 
 
@@ -53,8 +54,15 @@ class HomeView extends StatelessWidget {
           Icon(FontAwesomeIcons.solidBell,
             color: Colors.white,),
           SizedBox(width: 8,),
-          Icon(Icons.calendar_month,
-            color: Colors.white,)
+          IconButton(
+              onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context){
+                      return Calendar();
+                    }));
+              },
+              icon: Icon(Icons.calendar_month,
+              color: Colors.white,))
         ],
       ),
       body: ListView(

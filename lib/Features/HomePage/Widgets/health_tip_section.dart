@@ -21,7 +21,7 @@ class HealthTipSection extends StatelessWidget {
         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Assets.sliders.image(),
-          SizedBox(width: 8,),
+          SizedBox(width: 18,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,14 +38,14 @@ class HealthTipSection extends StatelessWidget {
 
             ],
           ),
-          IconButton(
-              onPressed: (){
-                Navigator.pushReplacement(context,
-                   MaterialPageRoute(builder: (context){
-                     return HealthTips();
-                   }));
-              },
-              icon: Icon(Icons.arrow_forward_ios)),
+          // IconButton(
+          //     onPressed: (){
+          //       Navigator.pushReplacement(context,
+          //          MaterialPageRoute(builder: (context){
+          //            return HealthTips();
+          //          }));
+          //     },
+          //     icon: Icon(Icons.arrow_forward_ios)),
         ],
       ),
     );

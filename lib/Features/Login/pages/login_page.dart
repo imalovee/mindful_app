@@ -20,7 +20,7 @@ class LoginPage extends StatefulWidget {
  bool remeberMe = false;
 
 class _LoginPageState extends State<LoginPage> {
-
+  bool passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     var bloc = context.watch<LoginBloc>();
@@ -112,16 +112,36 @@ class _LoginPageState extends State<LoginPage> {
                 bloc.setEmailAddress(newText);
               },),
             SizedBox(height: 16,),
-            SiignupItems(
-              title: "Password",
-              label: "Enter password",
+
+            Text("Confirm password",
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black
+              ),),
+            TextField(
+              decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                        });
+                      },
+                      icon: Icon(passwordVisible? Icons.visibility_off : Icons.visibility)),
+                  filled: true,
+                  fillColor: Colors.grey.shade100,
+                  hintText: "Enter password",
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.grey
+                      )
+                  )
+              ),
               onChanged: (String newText) {
                 bloc.setPassword(newText);
-              },
-              isAPassword: true,
-              suffixIcon: IconButton(
-                  onPressed: (){},
-                  icon: Icon(Icons.remove_red_eye)),
+                },
+              keyboardType: TextInputType.visiblePassword,
+              obscureText: !passwordVisible ,
             ),
             Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

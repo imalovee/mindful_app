@@ -45,6 +45,8 @@ dependencies:
   build_runner: ^2.4.9
   build: ^2.4.1
   flutter_gen_runner: ^5.4.0
+  intl: ^0.19.0
+  table_calendar: ^3.1.1
 
 
 

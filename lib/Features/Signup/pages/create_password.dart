@@ -19,9 +19,9 @@ class CreatePassword extends StatefulWidget {
 // TextEditingController _controller = new TextEditingController();
 
 class _CreatePasswordState extends State<CreatePassword> {
-
   String emailAddress = "";
   String password = "";
+  bool passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     SignupBloc bloc = context.watch<SignupBloc>();
@@ -81,28 +81,67 @@ class _CreatePasswordState extends State<CreatePassword> {
             },
           ),
           SizedBox(height: 16,),
-          SiignupItems(
-              title: "Password",
-              label: "Enter password",
-            onChanged: ( newText) {
-                password = newText;
+          Text("password",
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black
+            ),),
+          TextField(
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                  onPressed: (){
+                    setState(() {
+                      passwordVisible = !passwordVisible;
+                    });
+                  },
+                  icon: Icon(passwordVisible? Icons.visibility : Icons.visibility_off)),
+                filled: true,
+                fillColor: Colors.grey.shade100,
+                hintText: "Enter password",
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.grey
+                    )
+                )
+            ),
+            onChanged:( newText) {
+              password = newText;
             },
-            isAPassword: true,
-            suffixIcon: IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.remove_red_eye)),
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: !passwordVisible ,
           ),
           SizedBox(height: 16,),
-          SiignupItems(
-              title: "Confirm Password",
-              label: "Enter password",
-            onChanged: ( newText) {
-                password = newText;
+          Text("Confirm password",
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black
+            ),),
+          TextField(
+            decoration: InputDecoration(
+                suffixIcon: IconButton(
+                    onPressed: (){
+                      setState(() {
+                        passwordVisible = !passwordVisible;
+                      });
+                    },
+                    icon: Icon(passwordVisible? Icons.visibility : Icons.visibility_off)),
+                filled: true,
+                fillColor: Colors.grey.shade100,
+                hintText: "Enter password",
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.grey
+                    )
+                )
+            ),
+            onChanged:( newText) {
+              password = newText;
             },
-          isAPassword: true,
-          suffixIcon: IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.remove_red_eye)),),
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: !passwordVisible ,
+          ),
           SizedBox(height: 60,),
           ElevatedButton(
               onPressed: state.signupStatus == SignupStatus.Processing? null:(){

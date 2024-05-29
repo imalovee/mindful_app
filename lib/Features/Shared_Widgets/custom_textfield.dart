@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final Function(String newText) onChanged;
   final TextInputType? textInputType;
-  final bool isAPassword;
+  final bool isAPassword ;
   final Widget? suffixIcon;
   final Color textColor;
 
@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
         ),
         onChanged: onChanged,
         keyboardType: textInputType,
-        obscureText: isAPassword,
+       obscureText: !isAPassword,
         style: TextStyle(
           color: textColor
         ),
