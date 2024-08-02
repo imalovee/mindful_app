@@ -15,7 +15,7 @@ class CalendarItems extends StatelessWidget {
       children: [
         Text(day,
         style: TextStyle(
-          fontWeight: FontWeight.bold
+          fontWeight: FontWeight.bold,
         ),),
         Container(
           margin: EdgeInsets.all(8),
@@ -24,7 +24,7 @@ class CalendarItems extends StatelessWidget {
               shape: BoxShape.circle
           ),
           padding: EdgeInsets.all(8),
-          child: Text(date),
+          child: Text(date,),
         ),
       ],
     );

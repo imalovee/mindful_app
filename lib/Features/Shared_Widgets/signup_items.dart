@@ -5,18 +5,19 @@ class SiignupItems extends StatelessWidget {
   const SiignupItems({
     super.key, required this.title,
     required this.label,
-    required this.onChanged,
+     this.onChanged,
     this.textInputType,
      this.isAPassword = false,
-    this.suffixIcon,
+    this.suffixIcon, this.textEditingController,
 
   });
   final String title;
   final String label;
-  final Function(String newText) onChanged;
+  final Function(String newText)? onChanged;
   final TextInputType? textInputType;
   final bool isAPassword;
   final Widget? suffixIcon;
+ final TextEditingController? textEditingController;
 
 
 
@@ -44,6 +45,7 @@ class SiignupItems extends StatelessWidget {
               )
           ),
 
+          controller:textEditingController ,
           onChanged: onChanged,
           keyboardType: textInputType,
           obscureText: isAPassword,

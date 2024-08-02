@@ -21,7 +21,6 @@ class Assets {
   static const AssetGenImage download3 = AssetGenImage('assets/download 3.jpg');
   static const AssetGenImage download4 = AssetGenImage('assets/download 4.jpg');
   static const AssetGenImage download5 = AssetGenImage('assets/download 5.jpg');
-  static const AssetGenImage download6 = AssetGenImage('assets/download 6.jpg');
   static const AssetGenImage drink = AssetGenImage('assets/drink.png');
   static const AssetGenImage drug = AssetGenImage('assets/drug.png');
   static const AssetGenImage ellipse206 =
@@ -50,14 +49,6 @@ class Assets {
   static const AssetGenImage pi5 = AssetGenImage('assets/pi5.jpg');
   static const AssetGenImage pi9 = AssetGenImage('assets/pi9.jpg');
   static const AssetGenImage plate = AssetGenImage('assets/plate.png');
-  static const AssetGenImage rectangle1 =
-      AssetGenImage('assets/rectangle 1.png');
-  static const AssetGenImage rectangle2 =
-      AssetGenImage('assets/rectangle 2.png');
-  static const AssetGenImage rectangle3 =
-      AssetGenImage('assets/rectangle 3.png');
-  static const AssetGenImage rectangle4 =
-      AssetGenImage('assets/rectangle 4.png');
   static const AssetGenImage shop = AssetGenImage('assets/shop.png');
   static const AssetGenImage sliders = AssetGenImage('assets/sliders.png');
   static const AssetGenImage splashScreen =
@@ -82,7 +73,6 @@ class Assets {
         download3,
         download4,
         download5,
-        download6,
         drink,
         drug,
         ellipse206,
@@ -110,10 +100,6 @@ class Assets {
         pi5,
         pi9,
         plate,
-        rectangle1,
-        rectangle2,
-        rectangle3,
-        rectangle4,
         shop,
         sliders,
         splashScreen,
@@ -128,9 +114,11 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(this._assetName, {this.size = null});
 
   final String _assetName;
+
+  final Size? size;
 
   Image image({
     Key? key,

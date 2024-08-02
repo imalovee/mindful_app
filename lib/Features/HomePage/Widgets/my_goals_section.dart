@@ -32,7 +32,7 @@ class MyGoalsSection extends StatelessWidget {
                 },
                 child: Text('Set Goals',
                   style: TextStyle(
-                      color: Color(0xFF0E55D8),
+                      color: Color(0xFFCC400C),
                       fontWeight: FontWeight.bold,
                       fontSize: 16
                   ),))

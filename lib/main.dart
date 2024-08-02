@@ -2,11 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mindful_app/Features/HomePage/home_bloc/cubit_bloc.dart';
 import 'package:mindful_app/Features/Login/bloc/login_bloc.dart';
 import 'package:mindful_app/Features/welcome_page.dart';
 import 'package:mindful_app/firebase_options.dart';
-
 import 'Features/Signup/bloc/signup_bloc.dart';
 import 'Features/Signup/pages/create_password.dart';
 import 'Features/Signup/pages/register_page.dart';
@@ -38,9 +36,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (BuildContext context) => LoginBloc(),
         ),
-        BlocProvider(
-          create: (BuildContext context) => EventBloc(),
-        )
+
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mindful_app/Features/Login/pages/login_page.dart';
 import 'package:mindful_app/Features/Signup/pages/create_password.dart';
 import 'package:mindful_app/Features/Signup/pages/register_page.dart';
@@ -29,7 +30,7 @@ class WelcomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 250,),
+                SizedBox(height: 250.sp,),
                 Text('Begin Your Healing \nJourney with Mindful',
                 style: TextStyle(
                   color: Colors.white,
@@ -54,15 +55,14 @@ class WelcomePage extends StatelessWidget {
                     },
                     child: Text('Get Started'),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue.shade600,
+                        backgroundColor: Color(0xFF4C51C1),
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                        )
-                    ).copyWith(
-                      minimumSize: MaterialStateProperty.all(Size.fromHeight(30)),
-                      fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width * 0.9, 40)),
-                    )),
+                        ),
+                      minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
+                    )
+                    ),
                 SizedBox(height: 8,),
                 OutlinedButton(
                     onPressed: (){
@@ -81,10 +81,8 @@ class WelcomePage extends StatelessWidget {
                       color: Colors.white,
                       width: 5,
                     )
-                  )
-                ).copyWith(
-                  minimumSize: MaterialStateProperty.all(Size.fromHeight(30)),
-                  fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width * 0.9, 40)),
+                  ),
+                  minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
                 )
                 )
               ],

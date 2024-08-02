@@ -3,8 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mindful_app/Features/HomePage/home_bloc/cubit_bloc.dart';
-import 'package:mindful_app/Features/HomePage/home_bloc/home_state.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../event_data/event_class.dart';
 import '../event_data/intl.dart';
@@ -49,7 +48,7 @@ class _AddEventsState extends State<AddEvents> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFF4C51C1),
         // leading: IconButton(
         //     onPressed: (){},
         //     icon: Icon(Icons.cancel_outlined)),
@@ -78,7 +77,7 @@ class _AddEventsState extends State<AddEvents> {
               Row(
                 children: [
                   Checkbox(
-                    activeColor: Colors.blue,
+                    activeColor: Color(0xFF4C51C1),
                       value: isAllDay,
                       onChanged: ( newValue){
                         setState(() {
@@ -93,7 +92,7 @@ class _AddEventsState extends State<AddEvents> {
                   ),)
                 ],
               ),
-          SizedBox(height: 20,),
+          SizedBox(height: 20.sp,),
           TextFormField(
             style: TextStyle(fontSize: 22),
             controller: descriptionController,
@@ -106,7 +105,7 @@ class _AddEventsState extends State<AddEvents> {
                 ),
                 hintText: 'Add details'
             ),
-            maxLines: 5,
+            maxLines: 3,
             onFieldSubmitted: (_) => saveForm,
             validator: (value){
               value != null && value.isEmpty ?'field cannot be empty' : null;
@@ -121,7 +120,7 @@ class _AddEventsState extends State<AddEvents> {
 
   Widget buildTitle(){
     return TextFormField(
-      style: TextStyle(fontSize: 22),
+      style: TextStyle(fontSize: 22.sp),
       controller: titleController,
       decoration: InputDecoration(
         border: UnderlineInputBorder(),
@@ -255,7 +254,8 @@ class _AddEventsState extends State<AddEvents> {
 }){
       return ListTile(
         title: Text(text),
-        trailing: Icon(Icons.arrow_drop_down_outlined),
+        trailing: Icon(Icons.arrow_drop_down_outlined,
+        color: Color(0xFFCC400C),),
         onTap: onClicked,
       );
   }
@@ -270,8 +270,10 @@ class _AddEventsState extends State<AddEvents> {
           to: toDate,
           isAllday: false
       );
+
       Navigator.of(context).pop();
-       context.read<EventBloc>().saveUserEvent(event);
+
+       //context.read<EventBloc>().saveUserEvent(event);
 
     }
   }

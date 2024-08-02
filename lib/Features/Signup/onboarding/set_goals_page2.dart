@@ -99,7 +99,7 @@ class _SetGoals2State extends State<SetGoals2> {
                 margin: EdgeInsets.symmetric(vertical: 16.sp),
                 padding: EdgeInsets.all(16.sp),
                 decoration: BoxDecoration(
-                    color: Colors.blue.shade50,
+                    color: Color(0xFFF0F0FA),
                     borderRadius: BorderRadius.circular(8)
                 ),
                 child: Row(
@@ -146,7 +146,7 @@ class _SetGoals2State extends State<SetGoals2> {
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor:Color(0xFF0E55D8),
+                      backgroundColor:Color(0xFF4C51C1),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mindful_app/Features/Profile/models/user_model.dart';
 import 'package:mindful_app/Features/Signup/bloc/signup_state.dart';
 import 'package:mindful_app/Features/Signup/repository/repository_file.dart';
 
@@ -13,6 +14,7 @@ class SignupBloc extends Cubit<SignupState>{
   }
 
     void registerUser({
+
     required String emailAddress,
     required String password,
 })async{
@@ -22,6 +24,7 @@ class SignupBloc extends Cubit<SignupState>{
                 email: emailAddress,
                 password: password);
 
+            await signupRepository.getEmail(emailAddress);
             emit(state.copyWith(signupStatus: SignupStatus.Succesful));
         } on FirebaseAuthException catch (e) {
           emit(state.copyWith(signupStatus: SignupStatus.Error));

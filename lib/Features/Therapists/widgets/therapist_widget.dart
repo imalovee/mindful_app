@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:mindful_app/Features/Therapists/pages/book_appointment.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mindful_app/Features/HomePage/pages/calendar_page.dart';
+
 
 import '../../../gen/assets.gen.dart';
 
@@ -16,7 +18,7 @@ class TherapistWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: 160.sp,
       padding: EdgeInsets.all(8),
       //margin: EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
@@ -44,10 +46,10 @@ class TherapistWidget extends StatelessWidget {
                 size: 20,
                 color:Color(0xFFFFCC41),),
               Icon(Icons.star,
-                size: 20,
+                size: 20.sp,
                 color: Color(0xFFFFCC41),),
               Icon(Icons.star,
-                size: 20,
+                size: 20.sp,
                 color: Color(0xFFFFCC41),),
               Icon(Icons.star,
                 size: 20,
@@ -56,10 +58,10 @@ class TherapistWidget extends StatelessWidget {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF0E55D8),
+                  backgroundColor: Color(0xFF4C51C1),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.sp),
                   )
               ),
               onPressed: (){
@@ -67,7 +69,7 @@ class TherapistWidget extends StatelessWidget {
                     context,
                 MaterialPageRoute(
                     builder: (context){
-                      return BookAppointment();
+                      return Calendar();
                     }));
               },
               child: Text('Schedule Now'))

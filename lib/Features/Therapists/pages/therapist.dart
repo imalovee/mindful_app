@@ -28,23 +28,11 @@ class Therapist extends StatelessWidget {
           AvailableTherapistsSection(),
           Text('Available Therapists',
             style: TextStyle(
-                color: Color(0xFF0E55D8),
-                fontWeight: FontWeight.bold,
+                color: Colors.black,
+               // fontWeight: FontWeight.bold,
                 fontSize: 16
             ),),
-          // TextField(
-          //   decoration: InputDecoration(
-          //     filled: true,
-          //     fillColor: Colors.grey.shade300,
-          //     border: OutlineInputBorder(
-          //       //borderRadius: BorderRadius.circular(38),
-          //       borderSide: BorderSide.none
-          //     ),
-          //     hintText: "Search",
-          //     prefixIcon: Icon(Icons.search),
-          //   ),
-          // ),
-         // SizedBox(height: 8,),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -77,7 +65,7 @@ class Therapist extends StatelessWidget {
               ),
               TherapistWidget(
                 title: "Dr. Matt Peters",
-                subTitle: "psycologist",
+                subTitle: "Psychologist",
                 image: CircleAvatar(
                   backgroundImage: AssetImage('assets/download 1.jpg'),
                 )

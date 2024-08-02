@@ -26,9 +26,6 @@ class ProfileItems extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black
                 ),
-                suffixIcon: IconButton(
-                    onPressed: (){},
-                    icon: Icon(Icons.edit)),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 )

@@ -17,8 +17,8 @@ class AvailableTherapistsSection extends StatelessWidget {
           children: [
             Text('Online',
               style: TextStyle(
-                  color: Color(0xFF0E55D8),
-                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  //fontWeight: FontWeight.bold,
                   fontSize: 16
               ),),
             // TextButton(

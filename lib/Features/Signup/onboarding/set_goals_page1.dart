@@ -76,7 +76,7 @@ class SetGoals1 extends StatelessWidget {
           },
         child: Icon(Icons.arrow_forward_ios),
         foregroundColor: Colors.white,
-        backgroundColor: Color(0xFF0E55D8),
+        backgroundColor: Color(0xFF4C51C1),
       ),
     );
   }

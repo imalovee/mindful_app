@@ -17,6 +17,7 @@ class ActivitySection extends StatelessWidget {
         Text('Activity',
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            color: Color(0xFFCC400C)
           ),),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

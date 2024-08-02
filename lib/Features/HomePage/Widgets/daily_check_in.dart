@@ -12,7 +12,7 @@ class DailyCheckIn extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         height: 120,
         decoration: BoxDecoration(
-            color: Color(0xFF0E55D8),
+            color: Color(0xFF4C51C1),
             borderRadius: BorderRadius.circular(16)
         ),
         child: Column(

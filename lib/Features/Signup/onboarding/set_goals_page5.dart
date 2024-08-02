@@ -89,12 +89,12 @@ class SetGoals5 extends StatelessWidget {
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor:Color(0xFF0E55D8),
+                      backgroundColor:Color(0xFF4C51C1),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                    minimumSize: Size(MediaQuery.of(context).size.width * 0.9, 45),
+                    minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
                   )),
             ],
           )),

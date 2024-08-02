@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mindful_app/Features/HomePage/pages/home_view.dart';
 import 'package:mindful_app/Features/Shared_Widgets/signup_items.dart';
 import 'package:mindful_app/Features/Signup/pages/setup_Page.dart';
@@ -21,6 +22,7 @@ class CreatePassword extends StatefulWidget {
 class _CreatePasswordState extends State<CreatePassword> {
   String emailAddress = "";
   String password = "";
+
   bool passwordVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -153,12 +155,12 @@ class _CreatePasswordState extends State<CreatePassword> {
               },
               child: Text('Proceed'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF0E55D8),
+                backgroundColor: Color(0xFF4C51C1),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                minimumSize: Size(MediaQuery.of(context).size.width * 0.9, 45),
+                minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
               )),
         ],
       ),

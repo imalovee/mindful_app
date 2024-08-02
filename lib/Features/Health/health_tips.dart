@@ -107,7 +107,7 @@ class HealthTips extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(FontAwesomeIcons.plateWheat,
-                            color: Colors.blue,),
+                            color: Color(0xFF4C51C1),),
                           SizedBox(width: 8,),
                           Column(
                             children: [
@@ -142,7 +142,7 @@ class HealthTips extends StatelessWidget {
                       onPressed: (){},
                       child: Text('View All',
                         style: TextStyle(
-                            color: Color(0xFF0E55D8),
+                            color: Color(0xFFCC400C),
                             fontWeight: FontWeight.bold,
                             fontSize: 16
                         ),))

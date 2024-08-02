@@ -67,7 +67,7 @@ class _SetGoals7State extends State<SetGoals7> {
           margin: EdgeInsets.symmetric(vertical: 16.sp),
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.blue.shade50,
+              color: Color(0xFFF0F0FA),
               borderRadius: BorderRadius.circular(8)
           ),
           child: ListTile(
@@ -85,7 +85,7 @@ class _SetGoals7State extends State<SetGoals7> {
                     isSwitched = value;
                   });
                 },
-            activeColor: Colors.blue,),
+            activeColor: Color(0xFFCC400C),),
           )
         ),
               SizedBox(
@@ -112,12 +112,12 @@ class _SetGoals7State extends State<SetGoals7> {
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0E55D8),
+                      backgroundColor: Color(0xFF4C51C1),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                    minimumSize: Size(MediaQuery.of(context).size.width * 0.9, 45),
+                    minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
                   )),
             ],
           )

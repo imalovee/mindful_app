@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mindful_app/Features/HomePage/home_page.dart';
 
 import '../../../gen/assets.gen.dart';
@@ -51,14 +52,12 @@ class SetupPage extends StatelessWidget {
                    },
                    child: Text("Set Goal"),
                    style: ElevatedButton.styleFrom(
-                       backgroundColor: Colors.blue.shade700,
+                       backgroundColor: Color(0xFF4C51C1),
                        foregroundColor: Colors.white,
                        shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(8),
-                       )
-                   ).copyWith(
-                     minimumSize: MaterialStateProperty.all(Size.fromHeight(30)),
-                     fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width * 0.9, 40)),
+                       ),
+                     minimumSize: Size(MediaQuery.of(context).size.width*0.9.sp, 40.sp)
                    )),
                SizedBox(height: 16,),
                TextButton(
@@ -71,7 +70,7 @@ class SetupPage extends StatelessWidget {
                    },
                    child: Text('Skip to HomePage',
                    style: TextStyle(
-                     color: Colors.blue
+                     color: Color(0xFFCC400C),
                    ),))
              ],
            ),

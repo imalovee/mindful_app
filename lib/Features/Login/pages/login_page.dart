@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: Text('Sign Up',
                       style: TextStyle(
-                          color: Color(0xFF0E55D8),
+                          color: Color(0xFFCC400C),
                           fontSize: 16,
                           fontWeight: FontWeight.bold
                       ),))
@@ -184,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text('Login'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF0E55D8),
+                    backgroundColor: Color(0xFF4C51C1),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -200,10 +200,3 @@ class _LoginPageState extends State<LoginPage> {
 
 }
 
-//     .copyWith(
-// minimumSize: MaterialStateProperty.all(
-// Size.fromHeight(30)),
-// fixedSize: MaterialStateProperty.all(Size(MediaQuery
-//     .of(context)
-//     .size
-//     .width * 0.9, 40)),

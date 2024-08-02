@@ -79,7 +79,7 @@ class _SetGoals6State extends State<SetGoals6> {
                         color: Colors.black,
                         width: 0.5
                     ),
-                    color: isChecked1? Colors.blue.shade100 : Colors.transparent
+                    color: isChecked1? Color(0xFFF0F0FA) : Colors.transparent
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +89,7 @@ class _SetGoals6State extends State<SetGoals6> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),
                     Checkbox(
-
+                        checkColor: Color(0xFF4C51C1),
                         value: isChecked1,
                         onChanged: (newValue){
                           setState(() {
@@ -110,7 +110,7 @@ class _SetGoals6State extends State<SetGoals6> {
                         color: Colors.black,
                         width: 0.5
                     ),
-                    color: isChecked2? Colors.blue.shade100 : Colors.transparent
+                    color: isChecked2? Color(0xFFF0F0FA) : Colors.transparent
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +120,7 @@ class _SetGoals6State extends State<SetGoals6> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),
                     Checkbox(
-
+                        checkColor: Color(0xFF4C51C1),
                         value: isChecked2,
                         onChanged: (newValue){
                           setState(() {
@@ -141,7 +141,7 @@ class _SetGoals6State extends State<SetGoals6> {
                         color: Colors.black,
                         width: 0.5
                     ),
-                    color: isChecked3? Colors.blue.shade100 : Colors.transparent
+                    color: isChecked3? Color(0xFFF0F0FA) : Colors.transparent
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,7 +151,7 @@ class _SetGoals6State extends State<SetGoals6> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),
                     Checkbox(
-
+                        checkColor: Color(0xFF4C51C1),
                         value: isChecked3,
                         onChanged: (newValue){
                           setState(() {
@@ -172,7 +172,7 @@ class _SetGoals6State extends State<SetGoals6> {
                         color: Colors.black,
                         width: 0.5
                     ),
-                    color: isChecked4? Colors.blue.shade100 : Colors.transparent
+                    color: isChecked4? Color(0xFFF0F0FA) : Colors.transparent
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -182,7 +182,7 @@ class _SetGoals6State extends State<SetGoals6> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),
                     Checkbox(
-
+                        checkColor: Color(0xFF4C51C1),
                         value: isChecked4,
                         onChanged: (newValue){
                           setState(() {
@@ -203,7 +203,7 @@ class _SetGoals6State extends State<SetGoals6> {
                         color: Colors.black,
                         width: 0.5
                     ),
-                    color: isChecked5? Colors.blue.shade100 : Colors.transparent
+                    color: isChecked5? Color(0xFFF0F0FA) : Colors.transparent
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -213,7 +213,7 @@ class _SetGoals6State extends State<SetGoals6> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),),
                     Checkbox(
-
+                        checkColor: Color(0xFF4C51C1),
                         value: isChecked5,
                         onChanged: (newValue){
                           setState(() {
@@ -235,7 +235,7 @@ class _SetGoals6State extends State<SetGoals6> {
                   },
                   child: Text('Next'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0E55D8),
+                      backgroundColor: Color(0xFF4C51C1),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

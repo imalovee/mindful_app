@@ -35,13 +35,14 @@ class Goals extends StatelessWidget {
           CalendarSection(),
           SizedBox(height: 16,),
           ActivitySection(),
-          SizedBox(height: 16,),
+          SizedBox(height: 18,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Weekly Stats',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  color: Color(0xFFCC400C)
                 ),),
               Container(
                 child: Assets.statistics.image(),

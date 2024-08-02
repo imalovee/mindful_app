@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mindful_app/Features/HomePage/home_page.dart';
 import 'package:mindful_app/Features/Login/pages/login_page.dart';
-
-import '../../Shared_Widgets/custom_textfield.dart';
+import 'package:mindful_app/Features/Profile/models/user_model.dart';
+import 'package:mindful_app/Features/Profile/profile_repository.dart';
+import '../../Profile/models/model_x.dart';
 import '../../Shared_Widgets/signup_items.dart';
 import 'create_password.dart';
 
@@ -32,10 +33,12 @@ List<String>items = [
     selectedItem = "Select Gender";
   }
 
-    String surName = "";
- String name = "";
-  String gender = "";
-  String phoneNumber = "";
+  TextEditingController surNameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+
+  ProfileRepository _profileRepository = ProfileRepository();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,16 +83,14 @@ List<String>items = [
             SiignupItems(
               title: "Name",
               label: "Enter name",
-              onChanged: (String newText) {
-                name = newText;
-              },),
+              textEditingController: firstNameController,
+              ),
             SizedBox(height: 16,),
             SiignupItems(
               title: "Surname",
               label: "Enter surname",
-              onChanged: (String newText) {
-                surName = newText;
-              },),
+              textEditingController: surNameController,
+              ),
             SizedBox(height: 16,),
 
             Column(
@@ -139,7 +140,8 @@ List<String>items = [
             SiignupItems(
               title: "Phone Number",
               label: "Enter phone Number",
-              onChanged: (String newText) {},),
+              textEditingController: numberController,
+              ),
 
             SizedBox(height: 20,),
             Row(
@@ -157,14 +159,25 @@ List<String>items = [
                     onPressed: (){},
                     child: Text('Terms & conditions',
                     style: TextStyle(
-                      color: Color(0xFF0E55D8),
+                      color: Color(0xFFCC400C),
                     ),)),
               ],
             ),
             SizedBox(height: 50,),
             ElevatedButton(
-                onPressed: () {
+                onPressed: () async{
                   if(_isUserInputValid()){
+                     await _profileRepository.userDetails(user:
+                      ModelX(firstName: firstNameController.text,
+                          lastName: surNameController.text,
+                          gender: selectedItem!,
+                          phoneNumber: numberController.text)
+                      );
+
+                     firstNameController.clear();
+                     surNameController.clear();
+                     numberController.clear();
+
                     Navigator.pushReplacement(
                         context, MaterialPageRoute(
                         builder: (context) {
@@ -174,12 +187,12 @@ List<String>items = [
                 },
                 child: Text('Proceed'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF0E55D8),
+                    backgroundColor: Color(0xFF4C51C1),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.sp),
                     ),
-                  minimumSize: Size(MediaQuery.of(context).size.width * 0.9, 45),
+                  minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
                 )),
 
           ],
@@ -190,10 +203,12 @@ List<String>items = [
 
         bool _isUserInputValid(){
           String errorMessage = "";
+          String name = firstNameController.text;
+          String surname = surNameController.text;
           //Check to see if input is valid
         if(name.isEmpty){
             errorMessage = "Name cannot be empty";
-        }else if(surName.isEmpty){
+        }else if(surname.isEmpty){
               errorMessage = "Surname cannot be empty";
         }
         if(errorMessage.isNotEmpty){

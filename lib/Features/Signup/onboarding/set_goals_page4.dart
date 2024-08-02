@@ -43,12 +43,12 @@ class SetGoals4 extends StatelessWidget {
               },
               child: Text('Sure, Convert'),
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF0E55D8),
+                  backgroundColor: Color(0xFF4C51C1),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                minimumSize: Size(MediaQuery.of(context).size.width * 0.9, 45),
+                minimumSize: Size(MediaQuery.of(context).size.width * 0.9.sp, 45.sp),
               )),
           TextButton(
               onPressed: (){
@@ -60,7 +60,7 @@ class SetGoals4 extends StatelessWidget {
               },
               child: Text('No, I want to set my goals',
                 style: TextStyle(
-                    color: Colors.blue
+                    color: Color(0xFFCC400C),
                 ),))
         ],
       ),

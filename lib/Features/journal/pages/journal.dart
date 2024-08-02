@@ -1,10 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mindful_app/Features/journal/firestore.dart';
+import 'package:mindful_app/Features/journal/pages/edit_notes.dart';
+import 'add_notes.dart';
 
-class Journal extends StatelessWidget {
+FirestoreServices _firestore = FirestoreServices();
+class Journal extends StatefulWidget {
   const Journal({super.key});
 
+  @override
+  State<Journal> createState() => _JournalState();
+}
+
+class _JournalState extends State<Journal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,174 +40,121 @@ class Journal extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20.sp,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Today",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16.sp,
-                fontWeight: FontWeight.bold
-              ),),
-              Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16.sp)
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Lonely grey skies",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.sp,
-                        fontWeight: FontWeight.bold
-                      ),),
-                    Row(
-                      children: [
-                        Text("The skies are grey and full of ..",
-                          style: TextStyle(
-                              color: Color(0xFF667185),
-
-                          ),),
-                        Text("22 April, 2024",
-                          style: TextStyle(
-                              color: Color(0xFF667185),
-
-                          ),),
-                      ],
-                    ),
-                  ],
-                ),
-              )
+          NotesStream()
             ],
           ),
-          SizedBox(height: 20,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("April",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16.sp,
-                  fontWeight: FontWeight.bold
-                ),),
-              Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16)
-                ),
-                child: Column(
-                  children: [
-                    ContainerItems(
-                      title: "Where the light is",
-                      text1: "Sometimes i look for the light in..",
-                      text2: "21 April,2024",
-                    ),
-                    Divider(),
-                    ContainerItems(
-                      title: "Prisms or Squares?",
-                      text1: "I'm not really a person of..",
-                      text2: "20 April,2024",
-                    ),
-                    Divider(),
-                    ContainerItems(
-                      title: "Sunshine Flowers",
-                      text1: "Never liked flowers atall untill..",
-                      text2: "19 April,2024",
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 20,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("2024",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16.sp,
-                  fontWeight: FontWeight.bold
-                ),),
-              Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)
-                ),
-                child: Column(
-                  children: [
-                    ContainerItems(
-                      title: "Happy days are over",
-                      text1: "The peach pit is bigger each...",
-                      text2: "21 March,2024",
-                    ),
-                    Divider(),
-                    ContainerItems(
-                      title: "Prisms or Squares?",
-                      text1: "I'm not really a person of..",
-                      text2: "20 April,2024",
-                    ),
-                    Divider(),
-                    ContainerItems(
-                      title: "Where do the sun go?",
-                      text1: "The skies are grey and full..",
-                      text2: "19 March,2024",
-                    ),
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
-          backgroundColor: Color(0xFF0E55D8),
-          onPressed: (){},
-      child: Icon(Icons.edit),),
+          backgroundColor: Color(0xFF4C51C1),
+          onPressed: (){
+          Navigator.push(context,
+              MaterialPageRoute(
+                  builder: (context){
+                    return AddNotes();
+                  }));
+          },
+      child: Icon(Icons.add),),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
 
-class ContainerItems extends StatelessWidget {
-  const ContainerItems({
-    super.key, required this.title,
-    required this.text1,
-    required this.text2,
+class NotesStream extends StatelessWidget {
+  const NotesStream({
+    super.key,
   });
-   final String title;
-   final String text1;
-   final String text2;
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: _firestore.getNotesStream() ,
+      builder: (context, snapshot){
+        if(!snapshot.hasData){
+          return CircularProgressIndicator(
+            backgroundColor: Colors.blue,
+          );
+        }
+        final savednotes = snapshot.data?.docs ?? [];
+        List<Widget> noteWidgets = [];
+        for(var note in savednotes){
+          //get docId
+          String documentID = note.id;
+          //get individual notes
+          final noteData = note.data() as Map<String, dynamic>;
+         String noteText = noteData['note']  ?? '';
+         String noteTitle = noteData['title'] ?? '';
+
+          // Create a widget for each note and add to list
+          final noteWidget = StreamDesign(text: noteText,
+            title: noteTitle,
+            icon: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                    onPressed: (){
+                      Navigator.push(context,
+                          MaterialPageRoute(
+                              builder: (context){
+                                return EditNotes(docId: documentID,);
+                              }));
+                    },
+                    icon: Icon(Icons.edit)),
+                IconButton(
+                    onPressed: (){
+                      _firestore.deleteNotes(documentID);
+                    },
+                    icon: Icon(Icons.delete)),
+              ],
+            ),
+          );
+
+          noteWidgets.add(noteWidget);
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: noteWidgets
+        );
+      }
+
+    );
+  }
+}
+
+
+class StreamDesign extends StatelessWidget {
+  const StreamDesign({super.key, required this.text, required this.title, required this.icon});
+  final String text;
+  final String title;
+  final Widget icon;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title,
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 16.sp,
-            fontWeight: FontWeight.bold
-          ),),
-        Row(
-          children: [
-            Text("The skies are grey and full ..",
-              style: TextStyle(
-                color: Color(0xFF667185),
-
-              ),),
-            Text("22 April, 2024",
-              style: TextStyle(
-                color: Color(0xFF667185),
-
-              ),),
-          ],
+        style: TextStyle(
+            color: Color(0xFFCC400C),
+            fontWeight: FontWeight.w800
+        ),),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.sp)
+          ),
+          child: ListTile(
+                  title: Text(title,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800
+                ),
+              ),
+              subtitle: Text(text,
+                ),
+            trailing: icon
+          ) ,
         ),
       ],
     );
