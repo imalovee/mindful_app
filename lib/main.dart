@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mindful_app/Features/Login/bloc/login_bloc.dart';
+import 'package:mindful_app/Features/Profile/bloc/profile_cubit.dart';
 import 'package:mindful_app/Features/welcome_page.dart';
 import 'package:mindful_app/firebase_options.dart';
 import 'Features/Signup/bloc/signup_bloc.dart';
@@ -20,7 +21,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
             create: (BuildContext context) => LoginBloc(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => ProfileCubit(),
         ),
 
       ],

@@ -15,7 +15,24 @@ class ProfileRepository{
       .set(user.toJson());
  }
 
- Future<ModelX?> getUserDetails()async{
+  Future<UserModel?> getDetails()async{
+   final uid = FirebaseAuth.instance.currentUser?.uid;
+   print(uid);
+   if (uid == null) {
+    throw Exception("No logged-in user found");
+   }
+   DocumentSnapshot<UserModel> documentSnapshot = await FirebaseFirestore.instance
+       .collection('users').doc(uid)
+       .withConverter<UserModel>(
+       fromFirestore: (snapshot, options)=> UserModel.fromJson(snapshot.data()??{}),
+       toFirestore: (userModel , options)=> userModel.toJson()
+   ).get();
+    print(documentSnapshot.data());
+   return documentSnapshot.data();
+  }
+
+
+  Future<ModelX?> getUserDetails()async{
   try{
    final uid = FirebaseAuth.instance.currentUser?.uid;
    print(uid);
@@ -39,21 +56,6 @@ class ProfileRepository{
   return null;
  }
 
- // Future<Object?> getUserDetails()async{
- //  final uid = FirebaseAuth.instance.currentUser?.uid;
- //  print(uid);
- //  if (uid == null) {
- //   throw Exception("No logged-in user found");
- //  }
- //  DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
- //      .collection('users').doc(uid)
- //      .withConverter<UserModel>(
- //      fromFirestore: (snapshot, options)=> UserModel.fromJson(snapshot.data()??{}),
- //      toFirestore: (userModel , options)=> userModel.toJson()
- //  ).get();
- //   print(documentSnapshot.data());
- //  return documentSnapshot.data();
- // }
 
 
 

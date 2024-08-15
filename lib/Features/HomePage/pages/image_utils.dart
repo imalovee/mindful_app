@@ -10,7 +10,7 @@ pickImage(ImageSource source, )async{
   print('No images selected');
 }
 
-getImage(ImageSource source, CameraDevice camera )async{
+getPhoto(ImageSource source, CameraDevice camera )async{
   final ImagePicker _imagePicker = ImagePicker();
   XFile? _file = await _imagePicker.pickImage(source: source,);
 
